@@ -5,7 +5,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'TLDR Wikipedia',
-  description: 'Gen Z Wikipedia'
+  description: 'Wikipedia is too long. Give me the TL;DR version.'
 }
 
 export default function RootLayout({
