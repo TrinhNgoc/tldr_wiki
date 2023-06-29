@@ -21,13 +21,13 @@ export default function Chat() {
     <div className="flex flex-col w-full max-w-md py-24 mx-auto stretch">
 
       <h1
-        className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl mb-10"
+        className="mx-6 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl mb-10"
       >
         TLDR Wikipedia
       </h1>
 
       {randomUrl ? (
-        <div className="relative block overflow-hidden rounded-lg border border-gray-100 p-4 sm:p-6 lg:p-8">
+        <div className="relative block overflow-hidden rounded-lg border border-gray-100 p-4 sm:p-6 lg:p-8 mx-6">
           <span
             className={`absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 ${
               isLoadingTldr ? "animate-gradient" : ""
@@ -37,7 +37,11 @@ export default function Chat() {
           <div className="sm:flex sm:justify-between sm:gap-4">
             <div>
               <h3 className="text-lg font-bold text-gray-900 sm:text-xl">
-                <a href={randomUrl} target="_blank" rel="noopener noreferrer">{title}</a>
+                {isLoadingTldr ? (
+                    "Finding a random Wikipedia article..."
+                ) : (
+                    <a href={randomUrl} target="_blank" rel="noopener noreferrer">{title}</a>
+                )}
               </h3>
             </div>
           </div>
@@ -45,7 +49,7 @@ export default function Chat() {
           <div className="mt-4">
             {isLoadingTldr ? (
               <p className="max-w-[40ch] text-sm text-gray-500">
-                Loading TLDR...
+                Loading summary...
               </p>
             ) : (
               <p className="max-w-[40ch] text-sm text-gray-500">
@@ -54,7 +58,7 @@ export default function Chat() {
             )}
           </div>
     
-          <dl className="mt-6 flex gap-4 sm:gap-6 justify-between">
+          <dl className="mt-6 mb-4 flex gap-4 sm:gap-6 justify-between">
             <div>
               <button
                   className="group relative inline-flex items-center overflow-hidden rounded bg-indigo-600 px-8 py-3 text-white focus:outline-none focus:ring active:bg-indigo-500">
@@ -96,7 +100,7 @@ export default function Chat() {
           </dl>
         </div>
       ) : (
-        <p>Loading random URL...</p>
+        <p className="mx-6">Loading Wikipedia...</p>
       )}
     </div>
   );

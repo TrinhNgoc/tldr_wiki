@@ -15,5 +15,7 @@
 }
 
 .animate-gradient {
-  animation: gradientAnimation 2s ease-in-out infinite;
+  animation: gradientAnimation 2s ease infinite;
+  -webkit-animation: gradientAnimation 3s ease infinite;
+  -moz-animation: gradientAnimation 3s ease infinite;
 }
